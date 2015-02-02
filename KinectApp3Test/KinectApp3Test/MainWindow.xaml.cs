@@ -30,6 +30,10 @@ namespace KinectApp3Test
         byte[] _colorBits;
         DepthImagePixel[] _depthBits;
         Skeleton[] _skeletons;
+        private WriteableBitmap colorBitmap;
+        private WriteableBitmap depthBitmap;
+        private byte[] colorPixels;
+        private byte[] depthColorPixels;
 
         public MainWindow()
         {
@@ -56,7 +60,7 @@ namespace KinectApp3Test
             _sensor.SkeletonStream.Enable();
             _sensor.Start();
 
-            this.canvas.Source = _sensor.RenderActivePlayer();
+            this.canvasA.Source = _sensor.RenderActivePlayer();
             this.canvasS.Source = _sensor.RenderPlayerSkeleton(System.Drawing.Color.Transparent);
         }
 
@@ -128,7 +132,7 @@ namespace KinectApp3Test
                 //{
                     _colorBits = new byte[frame.PixelDataLength];
                     frame.CopyPixelDataTo(_colorBits);
-                    //this.canvas.Source =_colorBits.ToBitmapSource(PixelFormats.Bgr32, 640, 480);
+                    //this.canvasC.Source =_colorBits.ToBitmapSource(PixelFormats.Bgr32, 640, 480);
                 //}
 
                 //throw new NotImplementedException();
@@ -143,10 +147,15 @@ namespace KinectApp3Test
                     return;
 
                 if (_depthBits == null)
-                //{
-                    _depthBits = new DepthImagePixel[frame.PixelDataLength];
-                    frame.CopyDepthImagePixelDataTo(_depthBits);
-                //}
+                {
+                    //_depthBits = new DepthImagePixel[frame.PixelDataLength];
+                    //frame.CopyDepthImagePixelDataTo(_depthBits);
+                    //this.canvasD.Source =_colorBits.ToBitmapSource(PixelFormats.Bgr32, 640, 480);
+                    short[] depthBits = new short[frame.PixelDataLength];
+                    frame.CopyPixelDataTo(depthBits);
+                    int stride = frame.Width * frame.BytesPerPixel;
+                    this.canvasD.Source = BitmapSource.Create(frame.Width, frame.Height, 96, 96, PixelFormats.Gray16, null, depthBits, stride);
+                }
 
                 //throw new NotImplementedException();
             }
