@@ -57,6 +57,7 @@ namespace KinectApp3Test
             _sensor.Start();
 
             this.canvas.Source = _sensor.RenderActivePlayer();
+            this.canvasS.Source = _sensor.RenderPlayerSkeleton(System.Drawing.Color.Transparent);
         }
 
         private void DeInitSensor(KinectSensor _sensor)
@@ -127,7 +128,7 @@ namespace KinectApp3Test
                 //{
                     _colorBits = new byte[frame.PixelDataLength];
                     frame.CopyPixelDataTo(_colorBits);
-                    this.canvas.Source =_colorBits.ToBitmapSource(PixelFormats.Bgr32, 640, 480);
+                    //this.canvas.Source =_colorBits.ToBitmapSource(PixelFormats.Bgr32, 640, 480);
                 //}
 
                 //throw new NotImplementedException();
