@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Image Name="canvas" Width="320" Height="240"></Image>
-        <Image Name="canvasS" Width="320" Height="240"></Image>
+        <Image Margin="0,-23,0.4,0.4" Source="DSC_0636.JPG" Stretch="Fill"/>
+        <Image Name="canvas" Margin="0,-23,0.4,0.4"/>
+        <Image Name="canvasS" Margin="0,-23,0.4,0.4"/>
     </Grid>
 </Window>
