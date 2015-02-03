@@ -1,0 +1,42 @@
+                //private void SensorDepthFrameReady(object sender, DepthImageFrameReadyEventArgs e)
+        //{
+        //    using (DepthImageFrame dF = e.OpenDepthImageFrame())
+        //    {
+        //        // copy pixel data to temp array
+        //        dF.CopyDepthImagePixelDataTo(this._depthBits);
+
+        //        // max and min depths
+        //        int minDepth = dF.MinDepth;
+        //        int maxDepth = dF.MaxDepth;
+
+        //        // convert depth to RGB
+        //        int colorPixIndex = 0;
+        //        for (int i = 0; i < this._depthBits.Length; ++i)
+        //        {
+        //            // get depth for pixel
+        //            short depth = _depthBits[i].Depth;
+                    
+        //            // blah blah blah, throw away samples
+        //            byte intensity = (byte)(depth >= minDepth && depth <= maxDepth ? depth : 0);
+
+        //            // write out blue byte
+        //            this.depthColorPixels[colorPixIndex++] = intensity;
+        //            // write out green byte
+        //            this.depthColorPixels[colorPixIndex++] = intensity;
+        //            // write out red byte
+        //            this.depthColorPixels[colorPixIndex++] = intensity;
+
+        //            // last byte unused, so iterate over it
+        //            ++colorPixIndex;
+
+        //        }
+
+        //        // write to bitmap
+        //        this.depthBitmap.WritePixels(
+        //            new Int32Rect(0, 0, this.depthBitmap.PixelWidth, this.depthBitmap.PixelHeight),
+        //            this.depthColorPixels,
+        //            this.depthBitmap.PixelWidth * sizeof(int),
+        //            0);
+
+        //    }
+                //}
